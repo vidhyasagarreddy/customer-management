@@ -1,0 +1,33 @@
+<div class="flex">
+    <h2>Add Customer:</h2>
+</div>
+
+<p-card class="flex justify-content-center">
+    <form [formGroup]="customerForm" (ngSubmit)="addCustomer()" novalidate>
+        <div class="field-group">
+            <label for="firstName" class="font-bold block mb-2">First Name</label> <br>
+            <input type="text" pInputText formControlName="firstName" />
+            <small class="p-error block"
+                *ngIf="customerForm.get('firstName')?.invalid && customerForm.get('firstName')?.dirty">
+                First name is required</small>
+        </div>
+
+        <div class="field-group">
+            <label for="lastName" class="block">Last Name</label> <br>
+            <input type="text" pInputText formControlName="lastName" />
+            <small class="p-error block"
+                *ngIf="customerForm.get('lastName')?.invalid && customerForm.get('lastName')?.dirty">
+                Last name is required</small>
+        </div>
+
+        <div class="field-group">
+            <label for="email" class="block">Email</label> <br>
+            <input type="text" pInputText formControlName="email" />
+            <small class="p-error block" *ngIf="customerForm.get('email')?.invalid && customerForm.get('email')?.dirty">
+                Email is required</small>
+        </div>
+
+        <button pButton class="action-button" type="submit" label="Submit" [disabled]="customerForm.invalid"></button>
+        <button pButton class="p-button-secondary action-button" type="submit" label="Cancel" severity="secondary" (click)="navigateToCustomersPage()"></button>
+    </form>
+</p-card>
