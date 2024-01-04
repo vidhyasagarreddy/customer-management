@@ -1,0 +1,16 @@
+.heading {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+
+.heading h2 {
+    display: inline-block;
+}
+
+
+
+.heading p-button {
+    position: absolute;
+    right: 0;
+}
